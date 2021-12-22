@@ -47,6 +47,7 @@ class MahasiswaFragment : Fragment() {
 //    }
 
     private fun initView() {
+        fabAddMahasiswa.setOnClickListener { (activity as MainActivity).tampilMahasiswaAddFragment() }
         //simulasiDataMahasiswa()
         //tampilMahasiswa()
         ambilDataMahasiswa()
