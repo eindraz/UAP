@@ -29,6 +29,10 @@ class MahasiswaFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_mahasiswa, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         initLocalDB()
         initView()
     }
@@ -61,7 +65,7 @@ class MahasiswaFragment : Fragment() {
             arrMahasiswa = r as MutableList<Mahasiswa>?
 
             when {
-                arrMahasiswa?.size == 0 -> tampilToast("Belum ada data Handphone")
+                arrMahasiswa?.size == 0 -> tampilToast("Belum ada data Mahasiswa")
 
                 else -> {
                     tampilMahasiswa()
@@ -81,6 +85,11 @@ class MahasiswaFragment : Fragment() {
             arrMahasiswa!! as ArrayList<Mahasiswa>
         )
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        this.clearFindViewByIdCache()
     }
 
 
